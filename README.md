@@ -1,0 +1,2 @@
+# rizzculator
+Calculate your rizz!
