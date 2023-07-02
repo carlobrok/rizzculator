@@ -2,73 +2,90 @@
 <html>
 <%- include('partials/_head', { title: 'rizzculator' }) %>
 
-    <body>
-        <%- include('partials/_header') %>
+<body>
+    <%- include('partials/_header') %>
 
-        <div class="container">  
-            <form>
-                <div class="slider-row">
-                    <div class="col-lg-3 d-flex justify-content-lg-center align-items-lg-center">
-                        <h3 class="d-lg-flex" style="font-family: 'Noto Sans', sans-serif;font-style: italic;">Age</h3>
-                    </div>
-                    <div class="col d-lg-flex align-items-lg-center"><input class="form-range" type="range" data-bs-theme="light" min="18" max="65" step="1" value="33" name="age" required="" title="Alter"></div>
+    <div class="container">
+        <form action="/result" method="POST">
+            <div class="slider-row">
+                <div class="slider-title">
+                  <h3 class="d-lg-flex">Age</h3>
                 </div>
-                <div class="slider-row">
-                    <div class="col-lg-3 d-flex justify-content-lg-center align-items-lg-center">
-                        <h3 class="d-lg-flex" style="font-family: 'Noto Sans', sans-serif;font-style: italic;">Income</h3>
-                    </div>
-                    <div class="col d-lg-flex align-items-lg-center"><input class="form-range" type="range" data-bs-theme="light" min="1000" max="200000" value="20000" name="income" step="1000"></div>
+                <div class="slider-div">
+                  <input class="form-range" type="range" data-bs-theme="light" min="18" max="65" step="1" value="22" name="age" required title="Alter">
+                  <h3 class="slider-value" id="ageValue"> </h3>
                 </div>
-                <div class="slider-row">
-                    <div class="col-lg-3 d-flex justify-content-lg-center align-items-lg-center">
-                        <h3 class="d-lg-flex" style="font-family: 'Noto Sans', sans-serif;font-style: italic;">Height</h3>
-                    </div>
-                    <div class="col d-lg-flex align-items-lg-center"><input class="form-range" type="range" data-bs-theme="light" name="height" min="120" max="220" value="175" step="1"></div>
-                </div>
-                <div class="slider-row">
-                    <div class="col-lg-3 d-flex justify-content-lg-center align-items-lg-center">
-                        <h3 class="d-lg-flex" style="font-family: 'Noto Sans', sans-serif;font-style: italic;">Weight</h3>
-                    </div>
-                    <div class="col d-lg-flex align-items-lg-center"><input class="form-range" type="range"  name="weight" value="75" min="50" max="130" step="1"></div>
-                </div>
-                <div class="row d-lg-flex justify-content-lg-start align-items-lg-center py-5">
-                    <div class="col-12 col-sm-12 col-lg-3 d-lg-flex justify-content-lg-center align-items-lg-center">
-                      <h3 class="text-sm-start text-lg-center d-lg-flex" style="font-family: 'Noto Sans', sans-serif;font-style: italic;">Body</h3>
-                    </div>
-                    <div class="selectable-image">
-                      <label>
-                        <input type="radio" name="bodyType" value="skinny" class="d-none">
-                        <img src="images/1skinny.png" style="height: 120px;max-width: 100%;" class="img-fluid">
-                      </label>
-                    </div>
-                    <div class="selectable-image">
-                      <label>
-                        <input type="radio" name="bodyType" value="normal" class="d-none">
-                        <img src="images/2normal.png" style="height: 120px;" class="img-fluid">
-                      </label>
-                    </div>
-                    <div class="selectable-image">
-                      <label>
-                        <input type="radio" name="bodyType" value="trained" class="d-none">
-                        <img src="images/3trained.png" style="height: 120px;" class="img-fluid">
-                      </label>
-                    </div>
-                    <div class="selectable-image">
-                      <label>
-                        <input type="radio" name="bodyType" value="obese" class="d-none">
-                        <img src="images/4obese.png" style="height: 120px;" class="img-fluid">
-                      </label>
-                    </div>
-                  </div>
-                  
-                <div class="row text-center">
-                    <div class="col"><input class="btn btn-danger" type="submit"></div>
-                </div>
+              </div>
 
-            </form>
-        </div>
+              <div class="slider-row">
+                <div class="slider-title">
+                  <h3 class="d-lg-flex">Income</h3>
+                </div>
+                <div class="slider-div">
+                  <input class="form-range" type="range" data-bs-theme="light" min="5000" max="200000" value="75000" name="income" step="1000" required>
+                  <h3 class="slider-value" id="incomeValue"> </h3>
+                </div>
+              </div>
+              
+              <div class="slider-row">
+                <div class="slider-title">
+                  <h3 class="d-lg-flex">Height</h3>
+                </div>
+                <div class="slider-div">
+                  <input class="form-range" type="range" data-bs-theme="light" name="height" min="150" max="220" value="170" step="1" required>
+                  <h3 class="slider-value" id="heightValue"> </h3>
+                </div>
+              </div>
+              
+              <div class="slider-row">
+                <div class="slider-title">
+                  <h3 class="d-lg-flex">Weight</h3>
+                </div>
+                <div class="slider-div">
+                  <input class="form-range" type="range" name="weight" min="50" max="130" value="70" step="1" required>
+                  <h3 class="slider-value" id="weightValue"></h3>
+                </div>
+              </div>
+             
+              
+            <div class="row d-lg-flex justify-content-lg-start align-items-lg-center py-5">
+                <div class="col-12 col-sm-12 col-lg-3 d-lg-flex justify-content-lg-center align-items-lg-center">
+                    <h3 class="text-sm-start text-lg-center d-lg-flex">Body</h3>
+                </div>
+                <div class="selectable-image">
+                    <label>
+                        <input type="radio" name="physique" value="2" class="d-none" required>
+                        <img src="images/1skinny.png"  class="img-fluid physique-img">
+                    </label>
+                </div>
+                <div class="selectable-image">
+                    <label>
+                        <input type="radio" name="physique" value="3" class="d-none" required>
+                        <img src="images/2normal.png"  class="img-fluid physique-img">
+                    </label>
+                </div>
+                <div class="selectable-image">
+                    <label>
+                        <input type="radio" name="physique" value="4" class="d-none" required>
+                        <img src="images/3trained.png"  class="img-fluid physique-img">
+                    </label>
+                </div>
+                <div class="selectable-image">
+                    <label>
+                        <input type="radio" name="physique" value="1" class="d-none" required>
+                        <img src="images/4obese.png"  class="img-fluid physique-img">
+                    </label>
+                </div>
+            </div>
 
-        <%- include('partials/_scripts') %>
-    </body>
+            <div class="row text-center">
+                <div class="col"><input class="btn btn-danger" type="submit" value="Lets goo!"></div>
+            </div>
+
+        </form>
+    </div>
+
+    <%- include('partials/_scripts') %>
+</body>
 
 </html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<%- include('partials/_head', { title: 'Form Submission Result' }) %> <!-- Include the head partial -->
+
+    <body>
+        <a href="/">
+        <%- include('partials/_header') %> <!-- Include the header partial -->
+        </a>
+        <div class="container">
+            <div class="row my-5">
+                <div class="col">
+                    <h1 class="text-center">your rizz is: <%= rizz %>%</h1>
+                </div>
+            </div>
+            <div class="row my-5">
+                <div class="col">
+                    <h3 class="text-center"><%= message %></h1>
+                </div>
+            </div>
+        </div>
+
+        <%- include('partials/_scripts') %>
+    </body>
+
+</html>
